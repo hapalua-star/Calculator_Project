@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', function() {
+
+
 function add(a,b) {
 	return a+b;
 };
@@ -51,12 +54,38 @@ function operate(operator,a,b)
    };
 
 
-
-
 }
 
 
 	
+       
 
 
+        
+
+            
+
+const click1=document.querySelector(".button");
+click1.addEventListener('click',printnumber);
+
+
+
+           function printnumber()
+           {
+              const number=document.createElement("p");
+              number.textContent= ("1");
+              const screen=document.getElementById("screen");
+              screen.appendChild(number);
+           };
+
+
+
+
+
+
+
+
+            
+           
+});
 
