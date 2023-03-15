@@ -24,31 +24,27 @@ function divide(a,b){
 
 
   
-function power(a,b) {
-
-  return Math.pow(a,b);
-	
-};
 
 
-function operate(operator,a,b)
+
+function operation(a,operator,b)
 {
    if (operator== "+")
    {
     return add(a,b);
-   };
+   }
 
-   if(operator== "-")
+   else if(operator== "-")
    {
     return subtract(a,b);
-   };
+   }
 
-   if(operator=="*")
+   else if(operator=="*")
    {
     return multiply(a,b);
-   };
+   }
 
-   if(operator=="/")
+   else if(operator=="/")
    {
     return divide(a,b);
    };
@@ -56,15 +52,7 @@ function operate(operator,a,b)
 
 }
 
-function storevalue(number)
-{
-  let value=0;
 
-  value=number;
-  console.log(value);
-    
-
-};
 
 
 	
@@ -126,6 +114,7 @@ click1.addEventListener('click',printnumber1);
        
        
        
+       
    };
 
    const click5=document.querySelector(".button5");
@@ -137,6 +126,8 @@ click1.addEventListener('click',printnumber1);
        number.textContent= ("5");
        const screen=document.getElementById("screen");
        screen.appendChild(number);
+       
+       
        
        
        
@@ -221,13 +212,6 @@ click1.addEventListener('click',printnumber1);
        number.textContent= ("-");
        const screen=document.getElementById("screen");
        screen.appendChild(number);
-       let subtractStore=document.getElementById("screen");
-       subtractStore=screen.textContent;
-       console.log(subtractStore);
-
-    
-       
-       
        
    };
 
@@ -276,14 +260,31 @@ click1.addEventListener('click',printnumber1);
        
        
    };
+  
+
+   
 
    const clickEqual=document.querySelector(".buttonEqual");
    clickEqual.addEventListener('click',equal);
 
    function equal()
    {
+      
+     let a=0;
+     let b=0;
+     const screen=document.getElementById("screen");
+     expression=screen.textContent;
+     [a,b]=expression.split(/[+\-*/]/);
+     let operaTor=expression.match(/([+\-*/])/)[0].trim();
+     console.log(operation(a,operaTor,b));
+     
 
-    
+
+
+
+
+   }
+
        //const number=document.createElement("p");
        //number.textContent= ("=");
        //const screen=document.getElementById("screen");
@@ -291,7 +292,7 @@ click1.addEventListener('click',printnumber1);
        
        
        
-   };
+   
 
    const clickPer=document.querySelector(".buttonPer");
    clickPer.addEventListener('click',period);
