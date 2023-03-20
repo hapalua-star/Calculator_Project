@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function add(a,b) {
-	return a+b;
+	return (parseFloat(a)+parseFloat(b));
 };
 
 function subtract(a,b) {
@@ -209,10 +209,26 @@ click1.addEventListener('click',printnumber1);
    function minus()
    {
        const number=document.createElement("p");
-       number.textContent= ("-");
+       number.textContent= ("-");    
        const screen=document.getElementById("screen");
-       screen.appendChild(number);
+
+     let a=0;
+     let b=0;
+     const screens=document.getElementById("screen");
+     let expression=screens.textContent;
+     [a,b]=expression.split(/[+\-*/]/);
        
+       if (a !== undefined && b !== undefined)
+       {
+        equal();
+        screen.appendChild(number);
+       }
+
+
+       else {
+
+       screen.appendChild(number);
+       };
    };
 
 
@@ -224,7 +240,27 @@ click1.addEventListener('click',printnumber1);
        const number=document.createElement("p");
        number.textContent= ("*");
        const screen=document.getElementById("screen");
-       screen.appendChild(number);
+
+
+
+
+       let a=0;
+       let b=0;
+       const screens=document.getElementById("screen");
+       let expression=screens.textContent;
+       [a,b]=expression.split(/[+\-*/]/);
+         
+         if (a !== undefined && b !== undefined)
+         {
+          equal();
+          screen.appendChild(number);
+         }
+  
+  
+         else {
+  
+         screen.appendChild(number);
+         };
        
        
        
@@ -232,30 +268,69 @@ click1.addEventListener('click',printnumber1);
 
 
    const clickPlus=document.querySelector(".buttonPlus");
-   clickPlus.addEventListener('click',add);
+   clickPlus.addEventListener('click',addition);
 
-   function add()
+   function addition()
    {
        const number=document.createElement("p");
        number.textContent= ("+");
        const screen=document.getElementById("screen");
+
+
+     let a=0;
+     let b=0;
+     const screens=document.getElementById("screen");
+     let expression=screens.textContent;
+     [a,b]=expression.split(/[+\-*/]/);
+       
+       if (a !== undefined && b !== undefined)
+       {
+        equal();
+        screen.appendChild(number);
+       }
+
+
+       else {
+
        screen.appendChild(number);
-       
-       
+       };
+     
        
    };
 
 
 
    const clickDiv=document.querySelector(".buttonDiv");
-   clickDiv.addEventListener('click',divide);
+   clickDiv.addEventListener('click',division);
 
-   function divide()
+   function division()
    {
+       
+       
+       
+       
        const number=document.createElement("p");
        number.textContent= ("/");
        const screen=document.getElementById("screen");
+
+       let a=0;
+       let b=0;
+       const screens=document.getElementById("screen");
+       let expression=screens.textContent;
+       [a,b]=expression.split(/[+\-*/]/);
+       
+       if (a !== undefined && b !== undefined)
+       {
+        equal();
+        screen.appendChild(number);
+       }
+
+
+       else {
+
        screen.appendChild(number);
+       };
+
        
        
        
@@ -273,15 +348,22 @@ click1.addEventListener('click',printnumber1);
      let a=0;
      let b=0;
      const screen=document.getElementById("screen");
-     expression=screen.textContent;
+     let expression=screen.textContent;
      [a,b]=expression.split(/[+\-*/]/);
      let operaTor=expression.match(/([+\-*/])/)[0].trim();
-     console.log(operation(a,operaTor,b));
      
+     let c=0;
+     c = operation(a,operaTor,b);
 
+     screen.textContent="";
 
+     const result=document.createElement("p");
+     result.textContent=c;
 
+     screen.appendChild(result);
 
+     //console.log(operation(a,operaTor,b));
+     
 
    }
 
