@@ -327,7 +327,7 @@ click1.addEventListener('click',printnumber1);
        let expression=screens.textContent;
        [a,b]=expression.split(/[+\-*/]/);
        
-       if(b==0)
+       if(a!==undefined && (b)==0)
        {
         screen.textContent="";
         screen.textContent=("Cannot divide by zero");
@@ -378,6 +378,17 @@ click1.addEventListener('click',printnumber1);
 
 
      }
+
+     else if(b==0)
+
+     
+     {
+      screen.textContent="";
+      screen.textContent=("Cannot divide by zero");
+
+
+     }
+     
 
      else
      {
