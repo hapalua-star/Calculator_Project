@@ -2,23 +2,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function add(a,b) {
-	return (parseFloat(a)+parseFloat(b));
+	return (parseFloat(a)+parseFloat(b)).toFixed(0);
 };
 
 function subtract(a,b) {
-	return a-b;
+	return (a-b).toFixed(0);
 };
 
 
 function multiply(a,b){
 
-    return a*b;
+    return (a*b).toFixed(0);
 };
 
 
 function divide(a,b){
 
-    return a/b;  
+    return (a/b).toFixed(0);  
 };
 	
 
@@ -53,9 +53,18 @@ function operation(a,operator,b)
 }
 
 
+const clearButton=document.querySelector(".clearbutton");
+clearButton.addEventListener('click',clear);
+
+    function clear()
+    {
+      const screen = document.getElementById("screen");
+      screen.textContent="";
 
 
-	
+
+    }
+
     
 const click1=document.querySelector(".button1");
 click1.addEventListener('click',printnumber1);
@@ -67,8 +76,7 @@ click1.addEventListener('click',printnumber1);
        number.textContent= ("1");
        const screen=document.getElementById("screen");
        screen.appendChild(number);
-      // let number1=number.textContent=1;
-      // storevalue(number1);
+      
        
    };
 
@@ -319,7 +327,18 @@ click1.addEventListener('click',printnumber1);
        let expression=screens.textContent;
        [a,b]=expression.split(/[+\-*/]/);
        
-       if (a !== undefined && b !== undefined)
+       if(b==0)
+       {
+        screen.textContent="";
+        screen.textContent=("Cannot divide by zero");
+
+
+       }
+       
+       
+       
+       
+       else if (a !== undefined && b !== undefined)
        {
         equal();
         screen.appendChild(number);
@@ -349,9 +368,22 @@ click1.addEventListener('click',printnumber1);
      let b=0;
      const screen=document.getElementById("screen");
      let expression=screen.textContent;
+
+       
      [a,b]=expression.split(/[+\-*/]/);
+
+     if(a == undefined || b == undefined)
+     {
+        screen.textContent="REDO";
+
+
+     }
+
+     else
+     {
      let operaTor=expression.match(/([+\-*/])/)[0].trim();
-     
+    
+
      let c=0;
      c = operation(a,operaTor,b);
 
@@ -363,8 +395,8 @@ click1.addEventListener('click',printnumber1);
      screen.appendChild(result);
 
      //console.log(operation(a,operaTor,b));
+    }
      
-
    }
 
        //const number=document.createElement("p");
